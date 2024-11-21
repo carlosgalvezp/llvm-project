@@ -48,66 +48,64 @@ namespace hicpp {
 class HICPPModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<modernize::AvoidCArraysCheck>(
-        "hicpp-avoid-c-arrays");
-    CheckFactories.registerCheck<cppcoreguidelines::AvoidGotoCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::AvoidCArraysCheck,
+                              "hicpp-avoid-c-arrays");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::AvoidGotoCheck, 
         "hicpp-avoid-goto");
-    CheckFactories.registerCheck<readability::BracesAroundStatementsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::BracesAroundStatementsCheck, 
         "hicpp-braces-around-statements");
-    CheckFactories.registerCheck<modernize::DeprecatedHeadersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::DeprecatedHeadersCheck, 
         "hicpp-deprecated-headers");
-    CheckFactories.registerCheck<ExceptionBaseclassCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ExceptionBaseclassCheck, 
         "hicpp-exception-baseclass");
-    CheckFactories.registerCheck<IgnoredRemoveResultCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IgnoredRemoveResultCheck, 
         "hicpp-ignored-remove-result");
-    CheckFactories.registerCheck<MultiwayPathsCoveredCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MultiwayPathsCoveredCheck, 
         "hicpp-multiway-paths-covered");
-    CheckFactories.registerCheck<SignedBitwiseCheck>("hicpp-signed-bitwise");
-    CheckFactories.registerCheck<google::ExplicitConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SignedBitwiseCheck, "hicpp-signed-bitwise");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, google::ExplicitConstructorCheck, 
         "hicpp-explicit-conversions");
-    CheckFactories.registerCheck<readability::FunctionSizeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::FunctionSizeCheck, 
         "hicpp-function-size");
-    CheckFactories.registerCheck<readability::NamedParameterCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::NamedParameterCheck, 
         "hicpp-named-parameter");
-    CheckFactories.registerCheck<bugprone::UseAfterMoveCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::UseAfterMoveCheck, 
         "hicpp-invalid-access-moved");
-    CheckFactories.registerCheck<cppcoreguidelines::ProTypeMemberInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::ProTypeMemberInitCheck, 
         "hicpp-member-init");
-    CheckFactories.registerCheck<performance::MoveConstArgCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, performance::MoveConstArgCheck, 
         "hicpp-move-const-arg");
-    CheckFactories.registerCheck<misc::NewDeleteOverloadsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::NewDeleteOverloadsCheck, 
         "hicpp-new-delete-operators");
-    CheckFactories.registerCheck<performance::NoexceptMoveConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, performance::NoexceptMoveConstructorCheck, 
         "hicpp-noexcept-move");
-    CheckFactories
-        .registerCheck<cppcoreguidelines::ProBoundsArrayToPointerDecayCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::ProBoundsArrayToPointerDecayCheck,
             "hicpp-no-array-decay");
-    CheckFactories.registerCheck<NoAssemblerCheck>("hicpp-no-assembler");
-    CheckFactories.registerCheck<cppcoreguidelines::NoMallocCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoAssemblerCheck, "hicpp-no-assembler");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::NoMallocCheck, 
         "hicpp-no-malloc");
-    CheckFactories
-        .registerCheck<cppcoreguidelines::SpecialMemberFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::SpecialMemberFunctionsCheck,
             "hicpp-special-member-functions");
-    CheckFactories.registerCheck<misc::StaticAssertCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::StaticAssertCheck, 
         "hicpp-static-assert");
-    CheckFactories.registerCheck<modernize::UseAutoCheck>("hicpp-use-auto");
-    CheckFactories.registerCheck<bugprone::UndelegatedConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseAutoCheck, "hicpp-use-auto");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::UndelegatedConstructorCheck, 
         "hicpp-undelegated-constructor");
-    CheckFactories.registerCheck<modernize::UseEmplaceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseEmplaceCheck, 
         "hicpp-use-emplace");
-    CheckFactories.registerCheck<modernize::UseEqualsDefaultCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseEqualsDefaultCheck, 
         "hicpp-use-equals-default");
-    CheckFactories.registerCheck<modernize::UseEqualsDeleteCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseEqualsDeleteCheck, 
         "hicpp-use-equals-delete");
-    CheckFactories.registerCheck<modernize::UseNoexceptCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseNoexceptCheck, 
         "hicpp-use-noexcept");
-    CheckFactories.registerCheck<modernize::UseNullptrCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseNullptrCheck, 
         "hicpp-use-nullptr");
-    CheckFactories.registerCheck<modernize::UseOverrideCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseOverrideCheck, 
         "hicpp-use-override");
-    CheckFactories.registerCheck<readability::UppercaseLiteralSuffixCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::UppercaseLiteralSuffixCheck, 
         "hicpp-uppercase-literal-suffix");
-    CheckFactories.registerCheck<cppcoreguidelines::ProTypeVarargCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::ProTypeVarargCheck, 
         "hicpp-vararg");
   }
 };

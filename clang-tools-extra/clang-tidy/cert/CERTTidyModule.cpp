@@ -238,98 +238,96 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
     // C++ checkers
     // CON
-    CheckFactories.registerCheck<bugprone::SpuriouslyWakeUpFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SpuriouslyWakeUpFunctionsCheck, 
         "cert-con54-cpp");
     // CTR
-    CheckFactories
-        .registerCheck<bugprone::PointerArithmeticOnPolymorphicObjectCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::PointerArithmeticOnPolymorphicObjectCheck,
             "cert-ctr56-cpp");
     // DCL
-    CheckFactories.registerCheck<VariadicFunctionDefCheck>("cert-dcl50-cpp");
-    CheckFactories.registerCheck<bugprone::ReservedIdentifierCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, VariadicFunctionDefCheck, "cert-dcl50-cpp");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::ReservedIdentifierCheck, 
         "cert-dcl51-cpp");
-    CheckFactories.registerCheck<misc::NewDeleteOverloadsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::NewDeleteOverloadsCheck, 
         "cert-dcl54-cpp");
-    CheckFactories.registerCheck<DontModifyStdNamespaceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DontModifyStdNamespaceCheck, 
         "cert-dcl58-cpp");
-    CheckFactories.registerCheck<google::build::UnnamedNamespaceInHeaderCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, google::build::UnnamedNamespaceInHeaderCheck, 
         "cert-dcl59-cpp");
     // ERR
-    CheckFactories.registerCheck<misc::ThrowByValueCatchByReferenceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::ThrowByValueCatchByReferenceCheck, 
         "cert-err09-cpp");
-    CheckFactories.registerCheck<SetLongJmpCheck>("cert-err52-cpp");
-    CheckFactories.registerCheck<StaticObjectExceptionCheck>("cert-err58-cpp");
-    CheckFactories.registerCheck<ThrownExceptionTypeCheck>("cert-err60-cpp");
-    CheckFactories.registerCheck<misc::ThrowByValueCatchByReferenceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SetLongJmpCheck, "cert-err52-cpp");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StaticObjectExceptionCheck, "cert-err58-cpp");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ThrownExceptionTypeCheck, "cert-err60-cpp");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::ThrowByValueCatchByReferenceCheck, 
         "cert-err61-cpp");
     // MEM
-    CheckFactories.registerCheck<DefaultOperatorNewAlignmentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DefaultOperatorNewAlignmentCheck, 
         "cert-mem57-cpp");
     // MSC
-    CheckFactories.registerCheck<LimitedRandomnessCheck>("cert-msc50-cpp");
-    CheckFactories.registerCheck<ProperlySeededRandomGeneratorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, LimitedRandomnessCheck, "cert-msc50-cpp");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProperlySeededRandomGeneratorCheck, 
         "cert-msc51-cpp");
-    CheckFactories.registerCheck<bugprone::SignalHandlerCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SignalHandlerCheck, 
         "cert-msc54-cpp");
     // OOP
-    CheckFactories.registerCheck<performance::MoveConstructorInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, performance::MoveConstructorInitCheck, 
         "cert-oop11-cpp");
-    CheckFactories.registerCheck<bugprone::UnhandledSelfAssignmentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::UnhandledSelfAssignmentCheck, 
         "cert-oop54-cpp");
-    CheckFactories.registerCheck<NonTrivialTypesLibcMemoryCallsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NonTrivialTypesLibcMemoryCallsCheck, 
         "cert-oop57-cpp");
-    CheckFactories.registerCheck<MutatingCopyCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MutatingCopyCheck, 
         "cert-oop58-cpp");
 
     // C checkers
     // ARR
-    CheckFactories.registerCheck<bugprone::SizeofExpressionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SizeofExpressionCheck, 
         "cert-arr39-c");
     // CON
-    CheckFactories.registerCheck<bugprone::SpuriouslyWakeUpFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SpuriouslyWakeUpFunctionsCheck, 
         "cert-con36-c");
     // DCL
-    CheckFactories.registerCheck<misc::StaticAssertCheck>("cert-dcl03-c");
-    CheckFactories.registerCheck<readability::UppercaseLiteralSuffixCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::StaticAssertCheck, "cert-dcl03-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::UppercaseLiteralSuffixCheck, 
         "cert-dcl16-c");
-    CheckFactories.registerCheck<bugprone::ReservedIdentifierCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::ReservedIdentifierCheck, 
         "cert-dcl37-c");
     // ENV
-    CheckFactories.registerCheck<CommandProcessorCheck>("cert-env33-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, CommandProcessorCheck, "cert-env33-c");
     // ERR
-    CheckFactories.registerCheck<bugprone::UnusedReturnValueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::UnusedReturnValueCheck, 
         "cert-err33-c");
-    CheckFactories.registerCheck<StrToNumCheck>("cert-err34-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StrToNumCheck, "cert-err34-c");
     // EXP
-    CheckFactories.registerCheck<bugprone::SuspiciousMemoryComparisonCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SuspiciousMemoryComparisonCheck, 
         "cert-exp42-c");
     // FLP
-    CheckFactories.registerCheck<FloatLoopCounter>("cert-flp30-c");
-    CheckFactories.registerCheck<bugprone::SuspiciousMemoryComparisonCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, FloatLoopCounter, "cert-flp30-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SuspiciousMemoryComparisonCheck, 
         "cert-flp37-c");
     // FIO
-    CheckFactories.registerCheck<misc::NonCopyableObjectsCheck>("cert-fio38-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::NonCopyableObjectsCheck, "cert-fio38-c");
     // INT
-    CheckFactories.registerCheck<readability::EnumInitialValueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::EnumInitialValueCheck, 
         "cert-int09-c");
     // MSC
-    CheckFactories.registerCheck<bugprone::UnsafeFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::UnsafeFunctionsCheck, 
         "cert-msc24-c");
-    CheckFactories.registerCheck<LimitedRandomnessCheck>("cert-msc30-c");
-    CheckFactories.registerCheck<ProperlySeededRandomGeneratorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, LimitedRandomnessCheck, "cert-msc30-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProperlySeededRandomGeneratorCheck, 
         "cert-msc32-c");
-    CheckFactories.registerCheck<bugprone::UnsafeFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::UnsafeFunctionsCheck, 
         "cert-msc33-c");
     // POS
-    CheckFactories.registerCheck<bugprone::BadSignalToKillThreadCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::BadSignalToKillThreadCheck, 
         "cert-pos44-c");
-    CheckFactories
-        .registerCheck<concurrency::ThreadCanceltypeAsynchronousCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, concurrency::ThreadCanceltypeAsynchronousCheck,
             "cert-pos47-c");
     // SIG
-    CheckFactories.registerCheck<bugprone::SignalHandlerCheck>("cert-sig30-c");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SignalHandlerCheck, "cert-sig30-c");
     // STR
-    CheckFactories.registerCheck<bugprone::SignedCharMisuseCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, bugprone::SignedCharMisuseCheck, 
         "cert-str34-c");
   }
 

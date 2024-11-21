@@ -35,40 +35,40 @@ namespace performance {
 class PerformanceModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<AvoidEndlCheck>("performance-avoid-endl");
-    CheckFactories.registerCheck<EnumSizeCheck>("performance-enum-size");
-    CheckFactories.registerCheck<FasterStringFindCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidEndlCheck, "performance-avoid-endl");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, EnumSizeCheck, "performance-enum-size");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, FasterStringFindCheck, 
         "performance-faster-string-find");
-    CheckFactories.registerCheck<ForRangeCopyCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ForRangeCopyCheck, 
         "performance-for-range-copy");
-    CheckFactories.registerCheck<ImplicitConversionInLoopCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ImplicitConversionInLoopCheck, 
         "performance-implicit-conversion-in-loop");
-    CheckFactories.registerCheck<InefficientAlgorithmCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InefficientAlgorithmCheck, 
         "performance-inefficient-algorithm");
-    CheckFactories.registerCheck<InefficientStringConcatenationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InefficientStringConcatenationCheck, 
         "performance-inefficient-string-concatenation");
-    CheckFactories.registerCheck<InefficientVectorOperationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InefficientVectorOperationCheck, 
         "performance-inefficient-vector-operation");
-    CheckFactories.registerCheck<MoveConstArgCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MoveConstArgCheck, 
         "performance-move-const-arg");
-    CheckFactories.registerCheck<MoveConstructorInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MoveConstructorInitCheck, 
         "performance-move-constructor-init");
-    CheckFactories.registerCheck<NoAutomaticMoveCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoAutomaticMoveCheck, 
         "performance-no-automatic-move");
-    CheckFactories.registerCheck<NoIntToPtrCheck>("performance-no-int-to-ptr");
-    CheckFactories.registerCheck<NoexceptDestructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoIntToPtrCheck, "performance-no-int-to-ptr");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoexceptDestructorCheck, 
         "performance-noexcept-destructor");
-    CheckFactories.registerCheck<NoexceptMoveConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoexceptMoveConstructorCheck, 
         "performance-noexcept-move-constructor");
-    CheckFactories.registerCheck<NoexceptSwapCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoexceptSwapCheck, 
         "performance-noexcept-swap");
-    CheckFactories.registerCheck<TriviallyDestructibleCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, TriviallyDestructibleCheck, 
         "performance-trivially-destructible");
-    CheckFactories.registerCheck<TypePromotionInMathFnCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, TypePromotionInMathFnCheck, 
         "performance-type-promotion-in-math-fn");
-    CheckFactories.registerCheck<UnnecessaryCopyInitialization>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnnecessaryCopyInitialization, 
         "performance-unnecessary-copy-initialization");
-    CheckFactories.registerCheck<UnnecessaryValueParamCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnnecessaryValueParamCheck, 
         "performance-unnecessary-value-param");
   }
 };

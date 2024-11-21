@@ -37,46 +37,58 @@ namespace google {
 class GoogleModule : public ClangTidyModule {
  public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<build::ExplicitMakePairCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, build::ExplicitMakePairCheck, 
         "google-build-explicit-make-pair");
-    CheckFactories.registerCheck<build::UnnamedNamespaceInHeaderCheck>(
+
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, build::UnnamedNamespaceInHeaderCheck, 
         "google-build-namespaces");
-    CheckFactories.registerCheck<build::UsingNamespaceDirectiveCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, build::UsingNamespaceDirectiveCheck, 
         "google-build-using-namespace");
-    CheckFactories.registerCheck<DefaultArgumentsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DefaultArgumentsCheck, 
         "google-default-arguments");
-    CheckFactories.registerCheck<ExplicitConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ExplicitConstructorCheck, 
         "google-explicit-constructor");
-    CheckFactories.registerCheck<readability::GlobalNamesInHeadersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::GlobalNamesInHeadersCheck, 
         "google-global-names-in-headers");
-    CheckFactories.registerCheck<objc::AvoidNSObjectNewCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, objc::AvoidNSObjectNewCheck, 
         "google-objc-avoid-nsobject-new");
-    CheckFactories.registerCheck<objc::AvoidThrowingObjCExceptionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, objc::AvoidThrowingObjCExceptionCheck, 
         "google-objc-avoid-throwing-exception");
-    CheckFactories.registerCheck<objc::FunctionNamingCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, objc::FunctionNamingCheck, 
         "google-objc-function-naming");
-    CheckFactories.registerCheck<objc::GlobalVariableDeclarationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, objc::GlobalVariableDeclarationCheck, 
         "google-objc-global-variable-declaration");
-    CheckFactories.registerCheck<runtime::IntegerTypesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, runtime::IntegerTypesCheck, 
         "google-runtime-int");
-    CheckFactories.registerCheck<runtime::OverloadedUnaryAndCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, runtime::OverloadedUnaryAndCheck, 
         "google-runtime-operator");
-    CheckFactories
-        .registerCheck<readability::AvoidUnderscoreInGoogletestNameCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::AvoidUnderscoreInGoogletestNameCheck,
             "google-readability-avoid-underscore-in-googletest-name");
-    CheckFactories.registerCheck<readability::AvoidCStyleCastsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::AvoidCStyleCastsCheck, 
         "google-readability-casting");
-    CheckFactories.registerCheck<readability::TodoCommentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::TodoCommentCheck, 
         "google-readability-todo");
-    CheckFactories
-        .registerCheck<clang::tidy::readability::BracesAroundStatementsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, clang::tidy::readability::BracesAroundStatementsCheck,
             "google-readability-braces-around-statements");
-    CheckFactories.registerCheck<clang::tidy::readability::FunctionSizeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, clang::tidy::readability::FunctionSizeCheck, 
         "google-readability-function-size");
-    CheckFactories
-        .registerCheck<clang::tidy::readability::NamespaceCommentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, clang::tidy::readability::NamespaceCommentCheck,
             "google-readability-namespace-comments");
-    CheckFactories.registerCheck<UpgradeGoogletestCaseCheck>(
+
+/*
+    CheckName: "google-readability-namespace-comments" -> module = "google"
+    Check->getName(): "readability-NamespaceCommentCheck" -> module = "readability" 
+
+    if module(ChekName) == module(Check->getName()) -> it's primary check
+
+    but if a check is moved from a folder to another, it's easy to miss to update the name
+    of the module.
+
+    Current approach of detecting colon doesn't work if there are multiple namespaces, like
+    in google checks.
+
+*/
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UpgradeGoogletestCaseCheck, 
         "google-upgrade-googletest-case");
   }
 

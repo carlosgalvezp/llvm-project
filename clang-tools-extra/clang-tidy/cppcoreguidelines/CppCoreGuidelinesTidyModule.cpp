@@ -57,83 +57,84 @@ namespace cppcoreguidelines {
 class CppCoreGuidelinesModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<AvoidCapturingLambdaCoroutinesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidCapturingLambdaCoroutinesCheck, 
         "cppcoreguidelines-avoid-capturing-lambda-coroutines");
-    CheckFactories.registerCheck<modernize::AvoidCArraysCheck>(
-        "cppcoreguidelines-avoid-c-arrays");
-    CheckFactories.registerCheck<AvoidConstOrRefDataMembersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::AvoidCArraysCheck,
+                              "cppcoreguidelines-avoid-c-arrays");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidConstOrRefDataMembersCheck, 
         "cppcoreguidelines-avoid-const-or-ref-data-members");
-    CheckFactories.registerCheck<AvoidDoWhileCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidDoWhileCheck, 
         "cppcoreguidelines-avoid-do-while");
-    CheckFactories.registerCheck<AvoidGotoCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidGotoCheck, 
         "cppcoreguidelines-avoid-goto");
-    CheckFactories.registerCheck<readability::MagicNumbersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::MagicNumbersCheck, 
         "cppcoreguidelines-avoid-magic-numbers");
-    CheckFactories.registerCheck<AvoidNonConstGlobalVariablesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidNonConstGlobalVariablesCheck, 
         "cppcoreguidelines-avoid-non-const-global-variables");
-    CheckFactories.registerCheck<AvoidReferenceCoroutineParametersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidReferenceCoroutineParametersCheck, 
         "cppcoreguidelines-avoid-reference-coroutine-parameters");
-    CheckFactories.registerCheck<modernize::UseOverrideCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseOverrideCheck, 
         "cppcoreguidelines-explicit-virtual-functions");
-    CheckFactories.registerCheck<InitVariablesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InitVariablesCheck, 
         "cppcoreguidelines-init-variables");
-    CheckFactories.registerCheck<InterfacesGlobalInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InterfacesGlobalInitCheck, 
         "cppcoreguidelines-interfaces-global-init");
-    CheckFactories.registerCheck<modernize::MacroToEnumCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::MacroToEnumCheck, 
         "cppcoreguidelines-macro-to-enum");
-    CheckFactories.registerCheck<MacroUsageCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MacroUsageCheck, 
         "cppcoreguidelines-macro-usage");
-    CheckFactories.registerCheck<MisleadingCaptureDefaultByValueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisleadingCaptureDefaultByValueCheck, 
         "cppcoreguidelines-misleading-capture-default-by-value");
-    CheckFactories.registerCheck<MissingStdForwardCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MissingStdForwardCheck, 
         "cppcoreguidelines-missing-std-forward");
-    CheckFactories.registerCheck<NarrowingConversionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NarrowingConversionsCheck, 
         "cppcoreguidelines-narrowing-conversions");
-    CheckFactories.registerCheck<NoMallocCheck>("cppcoreguidelines-no-malloc");
-    CheckFactories.registerCheck<NoSuspendWithLockCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoMallocCheck, "cppcoreguidelines-no-malloc");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoSuspendWithLockCheck, 
         "cppcoreguidelines-no-suspend-with-lock");
-    CheckFactories.registerCheck<performance::NoexceptDestructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, performance::NoexceptDestructorCheck, 
         "cppcoreguidelines-noexcept-destructor");
-    CheckFactories.registerCheck<performance::NoexceptMoveConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, performance::NoexceptMoveConstructorCheck, 
         "cppcoreguidelines-noexcept-move-operations");
-    CheckFactories.registerCheck<performance::NoexceptSwapCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, performance::NoexceptSwapCheck, 
         "cppcoreguidelines-noexcept-swap");
-    CheckFactories.registerCheck<misc::NonPrivateMemberVariablesInClassesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(
+        CheckFactories, misc::NonPrivateMemberVariablesInClassesCheck,
         "cppcoreguidelines-non-private-member-variables-in-classes");
-    CheckFactories.registerCheck<OwningMemoryCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, OwningMemoryCheck, 
         "cppcoreguidelines-owning-memory");
-    CheckFactories.registerCheck<PreferMemberInitializerCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, PreferMemberInitializerCheck, 
         "cppcoreguidelines-prefer-member-initializer");
-    CheckFactories.registerCheck<ProBoundsArrayToPointerDecayCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProBoundsArrayToPointerDecayCheck, 
         "cppcoreguidelines-pro-bounds-array-to-pointer-decay");
-    CheckFactories.registerCheck<ProBoundsConstantArrayIndexCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProBoundsConstantArrayIndexCheck, 
         "cppcoreguidelines-pro-bounds-constant-array-index");
-    CheckFactories.registerCheck<ProBoundsPointerArithmeticCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProBoundsPointerArithmeticCheck, 
         "cppcoreguidelines-pro-bounds-pointer-arithmetic");
-    CheckFactories.registerCheck<ProTypeConstCastCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeConstCastCheck, 
         "cppcoreguidelines-pro-type-const-cast");
-    CheckFactories.registerCheck<ProTypeCstyleCastCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeCstyleCastCheck, 
         "cppcoreguidelines-pro-type-cstyle-cast");
-    CheckFactories.registerCheck<ProTypeMemberInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeMemberInitCheck, 
         "cppcoreguidelines-pro-type-member-init");
-    CheckFactories.registerCheck<ProTypeReinterpretCastCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeReinterpretCastCheck, 
         "cppcoreguidelines-pro-type-reinterpret-cast");
-    CheckFactories.registerCheck<ProTypeStaticCastDowncastCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeStaticCastDowncastCheck, 
         "cppcoreguidelines-pro-type-static-cast-downcast");
-    CheckFactories.registerCheck<ProTypeUnionAccessCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeUnionAccessCheck, 
         "cppcoreguidelines-pro-type-union-access");
-    CheckFactories.registerCheck<ProTypeVarargCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ProTypeVarargCheck, 
         "cppcoreguidelines-pro-type-vararg");
-    CheckFactories.registerCheck<RvalueReferenceParamNotMovedCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RvalueReferenceParamNotMovedCheck, 
         "cppcoreguidelines-rvalue-reference-param-not-moved");
-    CheckFactories.registerCheck<SpecialMemberFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SpecialMemberFunctionsCheck, 
         "cppcoreguidelines-special-member-functions");
-    CheckFactories.registerCheck<SlicingCheck>("cppcoreguidelines-slicing");
-    CheckFactories.registerCheck<modernize::UseDefaultMemberInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SlicingCheck, "cppcoreguidelines-slicing");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, modernize::UseDefaultMemberInitCheck, 
         "cppcoreguidelines-use-default-member-init");
-    CheckFactories.registerCheck<misc::UnconventionalAssignOperatorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, misc::UnconventionalAssignOperatorCheck, 
         "cppcoreguidelines-c-copy-assignment-signature");
-    CheckFactories.registerCheck<VirtualClassDestructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, VirtualClassDestructorCheck, 
         "cppcoreguidelines-virtual-class-destructor");
   }
 

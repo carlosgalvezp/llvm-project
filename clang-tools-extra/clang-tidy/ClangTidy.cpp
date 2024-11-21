@@ -42,6 +42,7 @@
 #include "llvm/Support/Process.h"
 #include <algorithm>
 #include <utility>
+#include <iostream>
 
 #if CLANG_TIDY_ENABLE_STATIC_ANALYZER
 #include "clang/Analysis/PathDiagnostic.h"
@@ -419,6 +420,63 @@ ClangTidyASTConsumerFactory::createASTConsumer(
 
   std::vector<std::unique_ptr<ClangTidyCheck>> Checks =
       CheckFactories->createChecksForLanguage(&Context);
+
+  // ---------------------------------------------------------------------------
+  // Filter out alias checks
+  // ---------------------------------------------------------------------------
+  ClangTidyOptions::OptionMap AllCheckOptions = getCheckOptions();
+
+  std::cout << "DELETING ALIAS CHECKS\n";
+
+  llvm::erase_if(Checks, [&](std::unique_ptr<ClangTidyCheck> &Check) {
+    // Do not delete primary checks
+    if (!Check->isAlias(&Context)) {
+      return false;
+    }
+
+    // Get name of primary check
+    StringRef CheckName = Check->getID();
+    StringRef CheckType = Context.MapCheckToCheckType[CheckName];
+    StringRef PrimaryCheckName =
+        Context.MapCheckTypeToChecks[CheckType].front();
+
+    // If the check is an alias, delete it only if it's a *perfect* alias,
+    // i.e. it has the same options as the primary check
+    for (auto const &Option : AllCheckOptions) {
+      StringRef Key = Option.getKey();
+      StringRef Value = Option.getValue().Value;
+
+      if (Key.starts_with(CheckName)) {
+        StringRef OptionName = Key.substr(CheckName.size() + 1);
+
+        std::string PrimaryCheckOptionName =
+            PrimaryCheckName.str() + "." + OptionName.str();
+        StringRef PrimaryCheckValue =
+            AllCheckOptions[StringRef(PrimaryCheckOptionName)].Value;
+
+        // Found one option that is different from primary check -> keep
+        if (PrimaryCheckValue != Value) {
+          std::cout << "Alias check \"" << CheckName.str() << "\" of \""
+                    << PrimaryCheckName.str() << "\""
+                    << " has a different option: " << Key.str() << "="
+                    << Value.str() << " vs " << PrimaryCheckOptionName << "="
+                    << PrimaryCheckValue.str()
+                    << ". Keeping alias check as it's not a perfect alias"
+                    << std::endl;
+          return false;
+        }
+      }
+    }
+
+    // We have a perfect alias -> remove
+    std::cout << "Removing perfect alias " << Check->getID().str() << std::endl;
+    return true;
+  });
+
+  std::cout << "DONE REMOVING ALIAS CHECKS\n";
+
+  // ---------------------------------------------------------------------------
+
 
   ast_matchers::MatchFinder::MatchFinderOptions FinderOptions;
 

@@ -124,12 +124,21 @@ public:
   configurationDiag(StringRef Description,
                     DiagnosticIDs::Level Level = DiagnosticIDs::Warning) const;
 
+  bool isAlias(ClangTidyContext *Context) {
+    StringRef CheckType = Context->MapCheckToCheckType[getID()];
+    return std::find(Context->MapCheckTypeToChecks[CheckType].begin(),
+                     Context->MapCheckTypeToChecks[CheckType].end(), getID()) !=
+           Context->MapCheckTypeToChecks[CheckType].begin();
+  }
+
   /// Should store all options supported by this check with their
   /// current values or default values for options that haven't been overridden.
   ///
   /// The check should use ``Options.store()`` to store each option it supports
   /// whether it has the default value or it has been overridden.
   virtual void storeOptions(ClangTidyOptions::OptionMap &Options) {}
+
+  StringRef getID() const override { return CheckName; }
 
   /// Provides access to the ``ClangTidyCheck`` options via check-local
   /// names.
@@ -497,7 +506,6 @@ protected:
   bool areDiagsSelfContained() const {
     return Context->areDiagsSelfContained();
   }
-  StringRef getID() const override { return CheckName; }
 };
 
 /// Read a named option from the ``Context`` and parse it as a bool.

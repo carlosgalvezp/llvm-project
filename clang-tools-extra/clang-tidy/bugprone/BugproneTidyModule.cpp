@@ -103,170 +103,170 @@ namespace bugprone {
 class BugproneModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<ArgumentCommentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ArgumentCommentCheck, 
         "bugprone-argument-comment");
-    CheckFactories.registerCheck<AssertSideEffectCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AssertSideEffectCheck, 
         "bugprone-assert-side-effect");
-    CheckFactories.registerCheck<AssignmentInIfConditionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AssignmentInIfConditionCheck, 
         "bugprone-assignment-in-if-condition");
-    CheckFactories.registerCheck<BadSignalToKillThreadCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, BadSignalToKillThreadCheck, 
         "bugprone-bad-signal-to-kill-thread");
-    CheckFactories.registerCheck<BitwisePointerCastCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, BitwisePointerCastCheck, 
         "bugprone-bitwise-pointer-cast");
-    CheckFactories.registerCheck<BoolPointerImplicitConversionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, BoolPointerImplicitConversionCheck, 
         "bugprone-bool-pointer-implicit-conversion");
-    CheckFactories.registerCheck<BranchCloneCheck>("bugprone-branch-clone");
-    CheckFactories.registerCheck<CastingThroughVoidCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, BranchCloneCheck, "bugprone-branch-clone");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, CastingThroughVoidCheck, 
         "bugprone-casting-through-void");
-    CheckFactories.registerCheck<ChainedComparisonCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ChainedComparisonCheck, 
         "bugprone-chained-comparison");
-    CheckFactories.registerCheck<ComparePointerToMemberVirtualFunctionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ComparePointerToMemberVirtualFunctionCheck, 
         "bugprone-compare-pointer-to-member-virtual-function");
-    CheckFactories.registerCheck<CopyConstructorInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, CopyConstructorInitCheck, 
         "bugprone-copy-constructor-init");
-    CheckFactories.registerCheck<DanglingHandleCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DanglingHandleCheck, 
         "bugprone-dangling-handle");
-    CheckFactories.registerCheck<DynamicStaticInitializersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DynamicStaticInitializersCheck, 
         "bugprone-dynamic-static-initializers");
-    CheckFactories.registerCheck<EasilySwappableParametersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, EasilySwappableParametersCheck, 
         "bugprone-easily-swappable-parameters");
-    CheckFactories.registerCheck<EmptyCatchCheck>("bugprone-empty-catch");
-    CheckFactories.registerCheck<ExceptionEscapeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, EmptyCatchCheck, "bugprone-empty-catch");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ExceptionEscapeCheck, 
         "bugprone-exception-escape");
-    CheckFactories.registerCheck<FoldInitTypeCheck>("bugprone-fold-init-type");
-    CheckFactories.registerCheck<ForwardDeclarationNamespaceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, FoldInitTypeCheck, "bugprone-fold-init-type");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ForwardDeclarationNamespaceCheck, 
         "bugprone-forward-declaration-namespace");
-    CheckFactories.registerCheck<ForwardingReferenceOverloadCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ForwardingReferenceOverloadCheck, 
         "bugprone-forwarding-reference-overload");
-    CheckFactories.registerCheck<ImplicitWideningOfMultiplicationResultCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ImplicitWideningOfMultiplicationResultCheck, 
         "bugprone-implicit-widening-of-multiplication-result");
-    CheckFactories.registerCheck<InaccurateEraseCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InaccurateEraseCheck, 
         "bugprone-inaccurate-erase");
-    CheckFactories.registerCheck<IncorrectEnableIfCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IncorrectEnableIfCheck, 
         "bugprone-incorrect-enable-if");
-    CheckFactories.registerCheck<ReturnConstRefFromParameterCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReturnConstRefFromParameterCheck, 
         "bugprone-return-const-ref-from-parameter");
-    CheckFactories.registerCheck<SwitchMissingDefaultCaseCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SwitchMissingDefaultCaseCheck, 
         "bugprone-switch-missing-default-case");
-    CheckFactories.registerCheck<IncDecInConditionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IncDecInConditionsCheck, 
         "bugprone-inc-dec-in-conditions");
-    CheckFactories.registerCheck<IncorrectRoundingsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IncorrectRoundingsCheck, 
         "bugprone-incorrect-roundings");
-    CheckFactories.registerCheck<InfiniteLoopCheck>("bugprone-infinite-loop");
-    CheckFactories.registerCheck<IntegerDivisionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InfiniteLoopCheck, "bugprone-infinite-loop");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IntegerDivisionCheck, 
         "bugprone-integer-division");
-    CheckFactories.registerCheck<LambdaFunctionNameCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, LambdaFunctionNameCheck, 
         "bugprone-lambda-function-name");
-    CheckFactories.registerCheck<MacroParenthesesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MacroParenthesesCheck, 
         "bugprone-macro-parentheses");
-    CheckFactories.registerCheck<MacroRepeatedSideEffectsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MacroRepeatedSideEffectsCheck, 
         "bugprone-macro-repeated-side-effects");
-    CheckFactories.registerCheck<MisplacedOperatorInStrlenInAllocCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisplacedOperatorInStrlenInAllocCheck, 
         "bugprone-misplaced-operator-in-strlen-in-alloc");
-    CheckFactories.registerCheck<MisplacedPointerArithmeticInAllocCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisplacedPointerArithmeticInAllocCheck, 
         "bugprone-misplaced-pointer-arithmetic-in-alloc");
-    CheckFactories.registerCheck<MisplacedWideningCastCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisplacedWideningCastCheck, 
         "bugprone-misplaced-widening-cast");
-    CheckFactories.registerCheck<MoveForwardingReferenceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MoveForwardingReferenceCheck, 
         "bugprone-move-forwarding-reference");
-    CheckFactories.registerCheck<MultiLevelImplicitPointerConversionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MultiLevelImplicitPointerConversionCheck, 
         "bugprone-multi-level-implicit-pointer-conversion");
-    CheckFactories.registerCheck<MultipleNewInOneExpressionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MultipleNewInOneExpressionCheck, 
         "bugprone-multiple-new-in-one-expression");
-    CheckFactories.registerCheck<MultipleStatementMacroCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MultipleStatementMacroCheck, 
         "bugprone-multiple-statement-macro");
-    CheckFactories.registerCheck<NondeterministicPointerIterationOrderCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NondeterministicPointerIterationOrderCheck,
         "bugprone-nondeterministic-pointer-iteration-order");
-    CheckFactories.registerCheck<OptionalValueConversionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, OptionalValueConversionCheck,
         "bugprone-optional-value-conversion");
-    CheckFactories.registerCheck<PointerArithmeticOnPolymorphicObjectCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, PointerArithmeticOnPolymorphicObjectCheck, 
         "bugprone-pointer-arithmetic-on-polymorphic-object");
-    CheckFactories.registerCheck<RedundantBranchConditionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantBranchConditionCheck, 
         "bugprone-redundant-branch-condition");
-    CheckFactories.registerCheck<cppcoreguidelines::NarrowingConversionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, cppcoreguidelines::NarrowingConversionsCheck, 
         "bugprone-narrowing-conversions");
-    CheckFactories.registerCheck<NoEscapeCheck>("bugprone-no-escape");
-    CheckFactories.registerCheck<NonZeroEnumToBoolConversionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoEscapeCheck, "bugprone-no-escape");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NonZeroEnumToBoolConversionCheck, 
         "bugprone-non-zero-enum-to-bool-conversion");
-    CheckFactories.registerCheck<NotNullTerminatedResultCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NotNullTerminatedResultCheck, 
         "bugprone-not-null-terminated-result");
-    CheckFactories.registerCheck<ParentVirtualCallCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ParentVirtualCallCheck, 
         "bugprone-parent-virtual-call");
-    CheckFactories.registerCheck<PosixReturnCheck>("bugprone-posix-return");
-    CheckFactories.registerCheck<ReservedIdentifierCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, PosixReturnCheck, "bugprone-posix-return");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReservedIdentifierCheck, 
         "bugprone-reserved-identifier");
-    CheckFactories.registerCheck<SharedPtrArrayMismatchCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SharedPtrArrayMismatchCheck, 
         "bugprone-shared-ptr-array-mismatch");
-    CheckFactories.registerCheck<SignalHandlerCheck>("bugprone-signal-handler");
-    CheckFactories.registerCheck<SignedCharMisuseCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SignalHandlerCheck, "bugprone-signal-handler");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SignedCharMisuseCheck, 
         "bugprone-signed-char-misuse");
-    CheckFactories.registerCheck<SizeofContainerCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SizeofContainerCheck, 
         "bugprone-sizeof-container");
-    CheckFactories.registerCheck<SizeofExpressionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SizeofExpressionCheck, 
         "bugprone-sizeof-expression");
-    CheckFactories.registerCheck<SpuriouslyWakeUpFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SpuriouslyWakeUpFunctionsCheck, 
         "bugprone-spuriously-wake-up-functions");
-    CheckFactories.registerCheck<StandaloneEmptyCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StandaloneEmptyCheck, 
         "bugprone-standalone-empty");
-    CheckFactories.registerCheck<StringConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StringConstructorCheck, 
         "bugprone-string-constructor");
-    CheckFactories.registerCheck<StringIntegerAssignmentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StringIntegerAssignmentCheck, 
         "bugprone-string-integer-assignment");
-    CheckFactories.registerCheck<StringLiteralWithEmbeddedNulCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StringLiteralWithEmbeddedNulCheck, 
         "bugprone-string-literal-with-embedded-nul");
-    CheckFactories.registerCheck<StringviewNullptrCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StringviewNullptrCheck, 
         "bugprone-stringview-nullptr");
-    CheckFactories.registerCheck<SuspiciousEnumUsageCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousEnumUsageCheck, 
         "bugprone-suspicious-enum-usage");
-    CheckFactories.registerCheck<SuspiciousIncludeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousIncludeCheck, 
         "bugprone-suspicious-include");
-    CheckFactories.registerCheck<SuspiciousMemoryComparisonCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousMemoryComparisonCheck, 
         "bugprone-suspicious-memory-comparison");
-    CheckFactories.registerCheck<SuspiciousMemsetUsageCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousMemsetUsageCheck, 
         "bugprone-suspicious-memset-usage");
-    CheckFactories.registerCheck<SuspiciousMissingCommaCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousMissingCommaCheck, 
         "bugprone-suspicious-missing-comma");
-    CheckFactories.registerCheck<SuspiciousReallocUsageCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousReallocUsageCheck, 
         "bugprone-suspicious-realloc-usage");
-    CheckFactories.registerCheck<SuspiciousSemicolonCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousSemicolonCheck, 
         "bugprone-suspicious-semicolon");
-    CheckFactories.registerCheck<SuspiciousStringCompareCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousStringCompareCheck, 
         "bugprone-suspicious-string-compare");
-    CheckFactories.registerCheck<SuspiciousStringviewDataUsageCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousStringviewDataUsageCheck, 
         "bugprone-suspicious-stringview-data-usage");
-    CheckFactories.registerCheck<SwappedArgumentsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SwappedArgumentsCheck, 
         "bugprone-swapped-arguments");
-    CheckFactories.registerCheck<TaggedUnionMemberCountCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, TaggedUnionMemberCountCheck, 
         "bugprone-tagged-union-member-count");
-    CheckFactories.registerCheck<TerminatingContinueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, TerminatingContinueCheck, 
         "bugprone-terminating-continue");
-    CheckFactories.registerCheck<ThrowKeywordMissingCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ThrowKeywordMissingCheck, 
         "bugprone-throw-keyword-missing");
-    CheckFactories.registerCheck<TooSmallLoopVariableCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, TooSmallLoopVariableCheck, 
         "bugprone-too-small-loop-variable");
-    CheckFactories.registerCheck<UncheckedOptionalAccessCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UncheckedOptionalAccessCheck, 
         "bugprone-unchecked-optional-access");
-    CheckFactories.registerCheck<UndefinedMemoryManipulationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UndefinedMemoryManipulationCheck, 
         "bugprone-undefined-memory-manipulation");
-    CheckFactories.registerCheck<UndelegatedConstructorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UndelegatedConstructorCheck, 
         "bugprone-undelegated-constructor");
-    CheckFactories.registerCheck<UnhandledSelfAssignmentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnhandledSelfAssignmentCheck, 
         "bugprone-unhandled-self-assignment");
-    CheckFactories.registerCheck<UnhandledExceptionAtNewCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnhandledExceptionAtNewCheck, 
         "bugprone-unhandled-exception-at-new");
-    CheckFactories.registerCheck<UniquePtrArrayMismatchCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UniquePtrArrayMismatchCheck, 
         "bugprone-unique-ptr-array-mismatch");
-    CheckFactories.registerCheck<CrtpConstructorAccessibilityCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, CrtpConstructorAccessibilityCheck, 
         "bugprone-crtp-constructor-accessibility");
-    CheckFactories.registerCheck<UnsafeFunctionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnsafeFunctionsCheck, 
         "bugprone-unsafe-functions");
-    CheckFactories.registerCheck<UnusedLocalNonTrivialVariableCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnusedLocalNonTrivialVariableCheck, 
         "bugprone-unused-local-non-trivial-variable");
-    CheckFactories.registerCheck<UnusedRaiiCheck>("bugprone-unused-raii");
-    CheckFactories.registerCheck<UnusedReturnValueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnusedRaiiCheck, "bugprone-unused-raii");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnusedReturnValueCheck, 
         "bugprone-unused-return-value");
-    CheckFactories.registerCheck<UseAfterMoveCheck>("bugprone-use-after-move");
-    CheckFactories.registerCheck<VirtualNearMissCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseAfterMoveCheck, "bugprone-use-after-move");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, VirtualNearMissCheck, 
         "bugprone-virtual-near-miss");
   }
 };

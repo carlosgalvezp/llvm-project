@@ -68,109 +68,109 @@ namespace readability {
 class ReadabilityModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<AvoidConstParamsInDecls>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidConstParamsInDecls, 
         "readability-avoid-const-params-in-decls");
-    CheckFactories.registerCheck<AvoidNestedConditionalOperatorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidNestedConditionalOperatorCheck, 
         "readability-avoid-nested-conditional-operator");
-    CheckFactories.registerCheck<AvoidReturnWithVoidValueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidReturnWithVoidValueCheck, 
         "readability-avoid-return-with-void-value");
-    CheckFactories.registerCheck<AvoidUnconditionalPreprocessorIfCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidUnconditionalPreprocessorIfCheck, 
         "readability-avoid-unconditional-preprocessor-if");
-    CheckFactories.registerCheck<BracesAroundStatementsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, BracesAroundStatementsCheck, 
         "readability-braces-around-statements");
-    CheckFactories.registerCheck<ConstReturnTypeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ConstReturnTypeCheck, 
         "readability-const-return-type");
-    CheckFactories.registerCheck<ContainerContainsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ContainerContainsCheck, 
         "readability-container-contains");
-    CheckFactories.registerCheck<ContainerDataPointerCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ContainerDataPointerCheck, 
         "readability-container-data-pointer");
-    CheckFactories.registerCheck<ContainerSizeEmptyCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ContainerSizeEmptyCheck, 
         "readability-container-size-empty");
-    CheckFactories.registerCheck<ConvertMemberFunctionsToStatic>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ConvertMemberFunctionsToStatic, 
         "readability-convert-member-functions-to-static");
-    CheckFactories.registerCheck<DeleteNullPointerCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DeleteNullPointerCheck, 
         "readability-delete-null-pointer");
-    CheckFactories.registerCheck<DuplicateIncludeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DuplicateIncludeCheck, 
         "readability-duplicate-include");
-    CheckFactories.registerCheck<ElseAfterReturnCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ElseAfterReturnCheck, 
         "readability-else-after-return");
-    CheckFactories.registerCheck<EnumInitialValueCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, EnumInitialValueCheck, 
         "readability-enum-initial-value");
-    CheckFactories.registerCheck<FunctionCognitiveComplexityCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, FunctionCognitiveComplexityCheck, 
         "readability-function-cognitive-complexity");
-    CheckFactories.registerCheck<FunctionSizeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, FunctionSizeCheck, 
         "readability-function-size");
-    CheckFactories.registerCheck<IdentifierLengthCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IdentifierLengthCheck, 
         "readability-identifier-length");
-    CheckFactories.registerCheck<IdentifierNamingCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IdentifierNamingCheck, 
         "readability-identifier-naming");
-    CheckFactories.registerCheck<ImplicitBoolConversionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ImplicitBoolConversionCheck, 
         "readability-implicit-bool-conversion");
-    CheckFactories.registerCheck<MathMissingParenthesesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MathMissingParenthesesCheck, 
         "readability-math-missing-parentheses");
-    CheckFactories.registerCheck<RedundantInlineSpecifierCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantInlineSpecifierCheck, 
         "readability-redundant-inline-specifier");
-    CheckFactories.registerCheck<InconsistentDeclarationParameterNameCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, InconsistentDeclarationParameterNameCheck, 
         "readability-inconsistent-declaration-parameter-name");
-    CheckFactories.registerCheck<IsolateDeclarationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IsolateDeclarationCheck, 
         "readability-isolate-declaration");
-    CheckFactories.registerCheck<MagicNumbersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MagicNumbersCheck, 
         "readability-magic-numbers");
-    CheckFactories.registerCheck<MakeMemberFunctionConstCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MakeMemberFunctionConstCheck, 
         "readability-make-member-function-const");
-    CheckFactories.registerCheck<MisleadingIndentationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisleadingIndentationCheck, 
         "readability-misleading-indentation");
-    CheckFactories.registerCheck<MisplacedArrayIndexCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisplacedArrayIndexCheck, 
         "readability-misplaced-array-index");
-    CheckFactories.registerCheck<OperatorsRepresentationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, OperatorsRepresentationCheck, 
         "readability-operators-representation");
-    CheckFactories.registerCheck<QualifiedAutoCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, QualifiedAutoCheck, 
         "readability-qualified-auto");
-    CheckFactories.registerCheck<RedundantAccessSpecifiersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantAccessSpecifiersCheck, 
         "readability-redundant-access-specifiers");
-    CheckFactories.registerCheck<RedundantCastingCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantCastingCheck, 
         "readability-redundant-casting");
-    CheckFactories.registerCheck<RedundantFunctionPtrDereferenceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantFunctionPtrDereferenceCheck, 
         "readability-redundant-function-ptr-dereference");
-    CheckFactories.registerCheck<RedundantMemberInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantMemberInitCheck, 
         "readability-redundant-member-init");
-    CheckFactories.registerCheck<RedundantPreprocessorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantPreprocessorCheck, 
         "readability-redundant-preprocessor");
-    CheckFactories.registerCheck<ReferenceToConstructedTemporaryCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReferenceToConstructedTemporaryCheck, 
         "readability-reference-to-constructed-temporary");
-    CheckFactories.registerCheck<SimplifySubscriptExprCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SimplifySubscriptExprCheck, 
         "readability-simplify-subscript-expr");
-    CheckFactories.registerCheck<StaticAccessedThroughInstanceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StaticAccessedThroughInstanceCheck, 
         "readability-static-accessed-through-instance");
-    CheckFactories.registerCheck<StaticDefinitionInAnonymousNamespaceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StaticDefinitionInAnonymousNamespaceCheck, 
         "readability-static-definition-in-anonymous-namespace");
-    CheckFactories.registerCheck<StringCompareCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StringCompareCheck, 
         "readability-string-compare");
-    CheckFactories.registerCheck<readability::NamedParameterCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, readability::NamedParameterCheck, 
         "readability-named-parameter");
-    CheckFactories.registerCheck<NonConstParameterCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NonConstParameterCheck, 
         "readability-non-const-parameter");
-    CheckFactories.registerCheck<RedundantControlFlowCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantControlFlowCheck, 
         "readability-redundant-control-flow");
-    CheckFactories.registerCheck<RedundantDeclarationCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantDeclarationCheck, 
         "readability-redundant-declaration");
-    CheckFactories.registerCheck<RedundantSmartptrGetCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantSmartptrGetCheck, 
         "readability-redundant-smartptr-get");
-    CheckFactories.registerCheck<RedundantStringCStrCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantStringCStrCheck, 
         "readability-redundant-string-cstr");
-    CheckFactories.registerCheck<RedundantStringInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantStringInitCheck, 
         "readability-redundant-string-init");
-    CheckFactories.registerCheck<SimplifyBooleanExprCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SimplifyBooleanExprCheck, 
         "readability-simplify-boolean-expr");
-    CheckFactories.registerCheck<SuspiciousCallArgumentCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, SuspiciousCallArgumentCheck, 
         "readability-suspicious-call-argument");
-    CheckFactories.registerCheck<UniqueptrDeleteReleaseCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UniqueptrDeleteReleaseCheck, 
         "readability-uniqueptr-delete-release");
-    CheckFactories.registerCheck<UppercaseLiteralSuffixCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UppercaseLiteralSuffixCheck, 
         "readability-uppercase-literal-suffix");
-    CheckFactories.registerCheck<UseAnyOfAllOfCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseAnyOfAllOfCheck, 
         "readability-use-anyofallof");
-    CheckFactories.registerCheck<UseStdMinMaxCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseStdMinMaxCheck, 
         "readability-use-std-min-max");
   }
 };

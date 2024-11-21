@@ -59,69 +59,70 @@ namespace modernize {
 class ModernizeModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<AvoidBindCheck>("modernize-avoid-bind");
-    CheckFactories.registerCheck<AvoidCArraysCheck>("modernize-avoid-c-arrays");
-    CheckFactories.registerCheck<ConcatNestedNamespacesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidBindCheck, "modernize-avoid-bind");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, AvoidCArraysCheck,
+                              "modernize-avoid-c-arrays");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ConcatNestedNamespacesCheck, 
         "modernize-concat-nested-namespaces");
-    CheckFactories.registerCheck<DeprecatedHeadersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DeprecatedHeadersCheck, 
         "modernize-deprecated-headers");
-    CheckFactories.registerCheck<DeprecatedIosBaseAliasesCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DeprecatedIosBaseAliasesCheck, 
         "modernize-deprecated-ios-base-aliases");
-    CheckFactories.registerCheck<LoopConvertCheck>("modernize-loop-convert");
-    CheckFactories.registerCheck<MacroToEnumCheck>("modernize-macro-to-enum");
-    CheckFactories.registerCheck<MakeSharedCheck>("modernize-make-shared");
-    CheckFactories.registerCheck<MakeUniqueCheck>("modernize-make-unique");
-    CheckFactories.registerCheck<MinMaxUseInitializerListCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, LoopConvertCheck, "modernize-loop-convert");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MacroToEnumCheck, "modernize-macro-to-enum");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MakeSharedCheck, "modernize-make-shared");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MakeUniqueCheck, "modernize-make-unique");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MinMaxUseInitializerListCheck, 
         "modernize-min-max-use-initializer-list");
-    CheckFactories.registerCheck<PassByValueCheck>("modernize-pass-by-value");
-    CheckFactories.registerCheck<UseDesignatedInitializersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, PassByValueCheck, "modernize-pass-by-value");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseDesignatedInitializersCheck, 
         "modernize-use-designated-initializers");
-    CheckFactories.registerCheck<UseRangesCheck>("modernize-use-ranges");
-    CheckFactories.registerCheck<UseStartsEndsWithCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseRangesCheck, "modernize-use-ranges");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseStartsEndsWithCheck, 
         "modernize-use-starts-ends-with");
-    CheckFactories.registerCheck<UseStdFormatCheck>("modernize-use-std-format");
-    CheckFactories.registerCheck<UseStdNumbersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseStdFormatCheck, "modernize-use-std-format");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseStdNumbersCheck, 
         "modernize-use-std-numbers");
-    CheckFactories.registerCheck<UseStdPrintCheck>("modernize-use-std-print");
-    CheckFactories.registerCheck<RawStringLiteralCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseStdPrintCheck, "modernize-use-std-print");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RawStringLiteralCheck, 
         "modernize-raw-string-literal");
-    CheckFactories.registerCheck<RedundantVoidArgCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantVoidArgCheck, 
         "modernize-redundant-void-arg");
-    CheckFactories.registerCheck<ReplaceAutoPtrCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReplaceAutoPtrCheck, 
         "modernize-replace-auto-ptr");
-    CheckFactories.registerCheck<ReplaceDisallowCopyAndAssignMacroCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReplaceDisallowCopyAndAssignMacroCheck, 
         "modernize-replace-disallow-copy-and-assign-macro");
-    CheckFactories.registerCheck<ReplaceRandomShuffleCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReplaceRandomShuffleCheck, 
         "modernize-replace-random-shuffle");
-    CheckFactories.registerCheck<ReturnBracedInitListCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ReturnBracedInitListCheck, 
         "modernize-return-braced-init-list");
-    CheckFactories.registerCheck<ShrinkToFitCheck>("modernize-shrink-to-fit");
-    CheckFactories.registerCheck<TypeTraitsCheck>("modernize-type-traits");
-    CheckFactories.registerCheck<UnaryStaticAssertCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ShrinkToFitCheck, "modernize-shrink-to-fit");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, TypeTraitsCheck, "modernize-type-traits");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnaryStaticAssertCheck, 
         "modernize-unary-static-assert");
-    CheckFactories.registerCheck<UseAutoCheck>("modernize-use-auto");
-    CheckFactories.registerCheck<UseBoolLiteralsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseAutoCheck, "modernize-use-auto");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseBoolLiteralsCheck, 
         "modernize-use-bool-literals");
-    CheckFactories.registerCheck<UseConstraintsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseConstraintsCheck, 
         "modernize-use-constraints");
-    CheckFactories.registerCheck<UseDefaultMemberInitCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseDefaultMemberInitCheck, 
         "modernize-use-default-member-init");
-    CheckFactories.registerCheck<UseEmplaceCheck>("modernize-use-emplace");
-    CheckFactories.registerCheck<UseEqualsDefaultCheck>("modernize-use-equals-default");
-    CheckFactories.registerCheck<UseEqualsDeleteCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseEmplaceCheck, "modernize-use-emplace");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseEqualsDefaultCheck, "modernize-use-equals-default");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseEqualsDeleteCheck, 
         "modernize-use-equals-delete");
-    CheckFactories.registerCheck<UseNodiscardCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseNodiscardCheck, 
         "modernize-use-nodiscard");
-    CheckFactories.registerCheck<UseNoexceptCheck>("modernize-use-noexcept");
-    CheckFactories.registerCheck<UseNullptrCheck>("modernize-use-nullptr");
-    CheckFactories.registerCheck<UseOverrideCheck>("modernize-use-override");
-    CheckFactories.registerCheck<UseTrailingReturnTypeCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseNoexceptCheck, "modernize-use-noexcept");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseNullptrCheck, "modernize-use-nullptr");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseOverrideCheck, "modernize-use-override");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseTrailingReturnTypeCheck, 
         "modernize-use-trailing-return-type");
-    CheckFactories.registerCheck<UseTransparentFunctorsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseTransparentFunctorsCheck, 
         "modernize-use-transparent-functors");
-    CheckFactories.registerCheck<UseUncaughtExceptionsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseUncaughtExceptionsCheck, 
         "modernize-use-uncaught-exceptions");
-    CheckFactories.registerCheck<UseUsingCheck>("modernize-use-using");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseUsingCheck, "modernize-use-using");
   }
 };
 

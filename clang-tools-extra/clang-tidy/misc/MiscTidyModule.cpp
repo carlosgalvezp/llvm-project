@@ -39,47 +39,48 @@ namespace misc {
 class MiscModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-    CheckFactories.registerCheck<ConfusableIdentifierCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ConfusableIdentifierCheck, 
         "misc-confusable-identifiers");
-    CheckFactories.registerCheck<ConstCorrectnessCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ConstCorrectnessCheck, 
         "misc-const-correctness");
-    CheckFactories.registerCheck<CoroutineHostileRAIICheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, CoroutineHostileRAIICheck, 
         "misc-coroutine-hostile-raii");
-    CheckFactories.registerCheck<DefinitionsInHeadersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, DefinitionsInHeadersCheck, 
         "misc-definitions-in-headers");
-    CheckFactories.registerCheck<HeaderIncludeCycleCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, HeaderIncludeCycleCheck, 
         "misc-header-include-cycle");
-    CheckFactories.registerCheck<IncludeCleanerCheck>("misc-include-cleaner");
-    CheckFactories.registerCheck<MisleadingBidirectionalCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, IncludeCleanerCheck, "misc-include-cleaner");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisleadingBidirectionalCheck, 
         "misc-misleading-bidirectional");
-    CheckFactories.registerCheck<MisleadingIdentifierCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisleadingIdentifierCheck, 
         "misc-misleading-identifier");
-    CheckFactories.registerCheck<MisplacedConstCheck>("misc-misplaced-const");
-    CheckFactories.registerCheck<NewDeleteOverloadsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, MisplacedConstCheck, "misc-misplaced-const");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NewDeleteOverloadsCheck, 
         "misc-new-delete-overloads");
-    CheckFactories.registerCheck<NoRecursionCheck>("misc-no-recursion");
-    CheckFactories.registerCheck<NonCopyableObjectsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NoRecursionCheck, "misc-no-recursion");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, NonCopyableObjectsCheck, 
         "misc-non-copyable-objects");
-    CheckFactories.registerCheck<NonPrivateMemberVariablesInClassesCheck>(
-        "misc-non-private-member-variables-in-classes");
-    CheckFactories.registerCheck<RedundantExpressionCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories,
+                              NonPrivateMemberVariablesInClassesCheck,
+                              "misc-non-private-member-variables-in-classes");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, RedundantExpressionCheck, 
         "misc-redundant-expression");
-    CheckFactories.registerCheck<StaticAssertCheck>("misc-static-assert");
-    CheckFactories.registerCheck<ThrowByValueCatchByReferenceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, StaticAssertCheck, "misc-static-assert");
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, ThrowByValueCatchByReferenceCheck, 
         "misc-throw-by-value-catch-by-reference");
-    CheckFactories.registerCheck<UnconventionalAssignOperatorCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnconventionalAssignOperatorCheck, 
         "misc-unconventional-assign-operator");
-    CheckFactories.registerCheck<UniqueptrResetReleaseCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UniqueptrResetReleaseCheck, 
         "misc-uniqueptr-reset-release");
-    CheckFactories.registerCheck<UnusedAliasDeclsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnusedAliasDeclsCheck, 
         "misc-unused-alias-decls");
-    CheckFactories.registerCheck<UnusedParametersCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnusedParametersCheck, 
         "misc-unused-parameters");
-    CheckFactories.registerCheck<UnusedUsingDeclsCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UnusedUsingDeclsCheck, 
         "misc-unused-using-decls");
-    CheckFactories.registerCheck<UseAnonymousNamespaceCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseAnonymousNamespaceCheck, 
         "misc-use-anonymous-namespace");
-    CheckFactories.registerCheck<UseInternalLinkageCheck>(
+    CLANG_TIDY_REGISTER_CHECK(CheckFactories, UseInternalLinkageCheck, 
         "misc-use-internal-linkage");
   }
 };
